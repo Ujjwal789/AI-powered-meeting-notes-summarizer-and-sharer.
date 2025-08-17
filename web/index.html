@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mangodesk – AI Notes</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; max-width: 720px; margin: 24px auto; padding: 0 12px; }
+    fieldset { margin-bottom: 18px; }
+    textarea { width: 100%; min-height: 200px; }
+    input[type="text"], input[type="email"] { width: 100%; }
+    small { color: #555; }
+    .row { display: flex; gap: 12px; }
+    .row > * { flex: 1; }
+    button { padding: 10px 14px; cursor: pointer; }
+    .muted { color: #777; font-size: 0.9em; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  </style>
+</head>
+<body>
+  <h1>Mangodesk – AI Meeting Notes</h1>
+  <p class="muted">Upload a transcript or paste text, add an instruction, then generate and email the summary.</p>
+
+  <fieldset>
+    <legend>1) Transcript</legend>
+    <div class="row">
+      <div>
+        <label>Upload .txt</label><br />
+        <input id="file" type="file" accept=".txt,text/plain" />
+        <div><small>Or paste below:</small></div>
+      </div>
+    </div>
+    <textarea id="transcript" placeholder="Paste transcript here (optional if you upload a .txt file)"></textarea>
+  </fieldset>
+
+  <fieldset>
+    <legend>2) Custom Instruction</legend>
+    <input id="prompt" type="text" placeholder='e.g., "Summarize in bullet points for executives" or "Highlight only action items"' />
+  </fieldset>
+
+  <fieldset>
+    <legend>3) Generate Summary</legend>
+    <button id="btnGenerate">Generate Summary</button>
+    <div id="genStatus" class="muted"></div>
+    <p class="muted mono">Backend: <span id="backendUrl"></span></p>
+  </fieldset>
+
+  <fieldset>
+    <legend>4) Edit Summary</legend>
+    <textarea id="summary" placeholder="Summary will appear here and is fully editable"></textarea>
+  </fieldset>
+
+  <fieldset>
+    <legend>5) Share via Email</legend>
+    <div class="row">
+      <input id="to" type="email" placeholder="recipient@example.com" />
+      <input id="subject" type="text" placeholder="Subject (optional)" />
+    </div><br />
+    <button id="btnSend">Send Email</button>
+    <div id="sendStatus" class="muted"></div>
+  </fieldset>
+
+  <script src="app.js"></script>
+</body>
+</html>
