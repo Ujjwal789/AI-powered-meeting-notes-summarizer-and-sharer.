@@ -1,5 +1,5 @@
 // Set your backend API base URL here:
-const API_BASE = localStorage.getItem("API_BASE") || "http://localhost:8080";
+const API_BASE = localStorage.getItem("API_BASE") || "https://ai-powered-meeting-notes-summarizer-and-f9jb.onrender.com";
 
 document.getElementById("backendUrl").textContent = API_BASE;
 
